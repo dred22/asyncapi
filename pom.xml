@@ -10,5 +10,6 @@
 	<modules>
 		<module>service-a</module>
 		<module>service-b</module>
+		<module>events-lib</module>
 	</modules>
 </project>
