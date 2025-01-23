@@ -20,3 +20,14 @@ spring:
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       order-cmd: order-cmd
+
+springwolf:
+  docket:
+    base-package: com.magomed.b
+    info:
+      title: ${spring.application.name}
+      version: 1.0.0
+      description: This service can push command to create orders and listen for order events
+    servers.kafka-server:
+      protocol: kafka
+      host: ${spring.kafka.bootstrap-servers}
