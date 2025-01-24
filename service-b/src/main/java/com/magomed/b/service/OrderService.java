@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import static com.magomed.events.enums.OrderCmdActionEnum.CREATE;
+
 @RequiredArgsConstructor
 @Service
 public class OrderService {
@@ -18,7 +20,7 @@ public class OrderService {
     private final KafkaTemplate<String, OrderCmd> kafkaTemplate;
 
     public void createWithName(String name) {
-        OrderCmd orderCmd = new OrderCmd("CREATE", name, 1);
+        OrderCmd orderCmd = new OrderCmd(CREATE, name, 1);
         sendCmd(orderCmd);
     }
 

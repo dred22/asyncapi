@@ -1,0 +1,1 @@
+Async api can be found by http://localhost:8080/springwolf/asyncapi-ui.html

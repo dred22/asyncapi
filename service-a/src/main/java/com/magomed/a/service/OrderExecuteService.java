@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import static com.magomed.events.enums.OrderEventTypeEnum.CREATED;
+
 @RequiredArgsConstructor
 @Service
 public class OrderExecuteService {
@@ -18,7 +20,7 @@ public class OrderExecuteService {
     private final KafkaTemplate<String, OrderEvent> kafkaTemplate;
 
     public void createOrder(String article) {
-        var orderEvent = new OrderEvent(article, "CREATED");
+        var orderEvent = new OrderEvent(article, "successfully executed", CREATED);
         sendEvent(orderEvent);
     }
 
