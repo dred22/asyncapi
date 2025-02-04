@@ -1,6 +1,7 @@
 package com.magomed.b.controller;
 
-import com.magomed.b.model.OrderDto;
+import com.magomed.b.model.ArticleDto;
+import com.magomed.b.service.ArticleService;
 import com.magomed.b.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/orders")
-public class OrderController {
-    private final OrderService orderService;
+@RequestMapping("/articles")
+public class ArticleController {
+    private final ArticleService articleService;
 
     @PostMapping
-    public void create(@RequestBody OrderDto orderDto){
-        log.info("Create order [{}]", orderDto);
-        orderService.createWithName(orderDto.names());
+    public void create(@RequestBody ArticleDto articleDto) {
+        log.info("Create order [{}]", articleDto);
+        articleService.createWithName(articleDto.name());
     }
 }

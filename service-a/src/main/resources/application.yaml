@@ -5,6 +5,16 @@ apiVersion: v.1.0.0
 spring:
   application:
     name: service-a
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/allyz-dev-aurora-main?currentSchema=home
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
   kafka:
     properties:
       reconnect.backoff.ms: 1000
@@ -14,6 +24,7 @@ spring:
       group-id: service-a
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       order-cmd: order-cmd
+      article-cmd: article-cmd
       properties:
         spring:
           json:

@@ -20,6 +20,7 @@ spring:
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       order-cmd: order-cmd
+      article-cmd: article-cmd
 
 springwolf:
   docket:
