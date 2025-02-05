@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import java.util.List;
 import java.util.Objects;
@@ -24,6 +25,7 @@ public class OrderEntity {
     int amount;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
+    @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
     List<ArticleEntity> articles;
 
     public void setArticles(List<ArticleEntity> articles){

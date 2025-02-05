@@ -56,6 +56,17 @@
 			<artifactId>events-lib</artifactId>
 			<version>0.1.0</version>
 		</dependency>
+		<!--Hibernate L2 cache-->
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-jcache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<classifier>jakarta</classifier>
+			<scope>runtime</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

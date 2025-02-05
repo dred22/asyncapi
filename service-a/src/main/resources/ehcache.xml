@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.ehcache.org/v3">
+
+    <cache-template name="defaultTemplate">
+        <expiry>
+            <ttl>300</ttl>
+        </expiry>
+        <heap unit="entries">1000</heap>
+    </cache-template>
+
+    <cache alias="com.magomed.a.entity.ArticleEntity" uses-template="defaultTemplate"/>
+
+</config>

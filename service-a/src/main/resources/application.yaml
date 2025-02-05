@@ -6,9 +6,20 @@ spring:
   application:
     name: service-a
   jpa:
+    properties:
+      javax:
+        persistence:
+          sharedCache:
+            mode: ENABLE_SELECTIVE
     generate-ddl: true
     show-sql: true
     hibernate:
+      javax.cache:
+        uri: classpath:ehcache.xml
+      cache:
+        use_second_level_cache: true
+        region:
+          factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
       ddl-auto: update
   datasource:
     url: jdbc:postgresql://localhost:5432/allyz-dev-aurora-main?currentSchema=home
