@@ -2,15 +2,13 @@ package com.magomed.a.controller;
 
 import com.magomed.a.data.ArticleDto;
 import com.magomed.a.data.OrderDto;
+import com.magomed.a.data.UpdateOrderDto;
 import com.magomed.a.repository.OrderRepository;
 import com.magomed.a.service.ArticleService;
 import com.magomed.a.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,6 +30,11 @@ public class OrderController {
     @GetMapping("/orders/{id}")
     public OrderDto getOrder(@PathVariable int id) {
         return orderService.getById(id);
+    }
+
+    @PatchMapping("/orders")
+    public OrderDto updatedOrder(@RequestBody UpdateOrderDto orderUpdate) {
+        return orderService.updateOrder(orderUpdate);
     }
 
     @GetMapping("/articles")
