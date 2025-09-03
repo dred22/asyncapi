@@ -6,8 +6,8 @@
 		<groupId>org.magomed</groupId>
 		<artifactId>async-core</artifactId>
 		<version>0.0.1</version>
+		<relativePath/>
 	</parent>
-	<groupId>org.magomed</groupId>
 	<artifactId>service-b</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>service-b</name>
