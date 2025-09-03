@@ -1,0 +1,29 @@
+name: Build asyncapi
+
+on: workflow_dispatch
+
+jobs:
+  update-asyncapi:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout asyncapi
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: maven
+
+      - name: Clone async-core repo
+        run: git clone https://github.com/dred22/async-core.git
+
+      - name: Install async-core to local repo
+        working-directory: async-core
+        run: mvn -B clean install
+
+      - name: Build asynapi project
+        run: mvn -B clean verify
